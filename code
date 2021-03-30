@@ -1,0 +1,103 @@
+using System;
+
+namespace Stein__Schere__Papier
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Lass uns Stein, Schere, Papier spielen!");
+
+            bool weiterSpielen = true;
+
+            while (weiterSpielen)
+            {
+                Random rnd = new Random();
+
+                string[] gegnerHandzeichen = { "Stein", "Schere", "Papier" };
+
+                int handzeichenIndex = rnd.Next(gegnerHandzeichen.Length);
+
+                Console.WriteLine("1..,2..,3..");
+                string meineHand = Console.ReadLine();
+                Console.WriteLine("Ich nehme {0}!", gegnerHandzeichen[handzeichenIndex]);
+                Console.ReadLine();
+
+                if (handzeichenIndex == 0)
+                {
+                    if (meineHand == "Stein" || meineHand == "stein")
+                    {
+                        Console.WriteLine("Ihr habt euch beide für Stein entschieden!");
+                        Console.WriteLine("Unentschieden.");
+                    }
+                    else if (meineHand == "Papier" || meineHand == "papier")
+                    {
+                        Console.WriteLine("Papier schlägt Stein!");
+                        Console.WriteLine("Du gewinnst!");
+                    }
+                    else if (meineHand == "Schere" || meineHand == "schere")
+                    {
+                        Console.WriteLine("Stein schlägt Schere!");
+                        Console.WriteLine("Du verlierst!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wir spielen Stein, Schere, Papier OHNE Erweiterungen");
+                    }
+                }
+
+                if (handzeichenIndex == 1)
+                {
+                    if (meineHand == "Stein" || meineHand == "stein")
+                    {
+                        Console.WriteLine("Stein schlägt Schere!");
+                        Console.WriteLine("Du gewinnst!");
+                    }
+                    else if (meineHand == "Papier" || meineHand == "papier")
+                    {
+                        Console.WriteLine("Schere schneidet Papier!");
+                        Console.WriteLine("Du verlierst!");
+                    }
+                    else if (meineHand == "Schere" || meineHand == "schere")
+                    {
+                        Console.WriteLine("Ihr habt euch beide für Schere entschieden!");
+                        Console.WriteLine("Unentschieden.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wir spielen Stein, Schere, Papier OHNE Erweiterungen");
+                    }
+                }
+                if (handzeichenIndex == 2)
+                {
+                    if (meineHand == "Stein" || meineHand == "stein")
+                    {
+                        Console.WriteLine("Papier wickelt Stein ein!");
+                        Console.WriteLine("Du verlierst!");
+                    }
+                    else if (meineHand == "Papier" || meineHand == "papier")
+                    {
+                        Console.WriteLine("Ihr habt euch beide für Papier entschieden!");
+                        Console.WriteLine("Unentschieden.");
+                    }
+                    else if (meineHand == "Schere" || meineHand == "schere")
+                    {
+                        Console.WriteLine("Schere schneidet Papier");
+                        Console.WriteLine("Du gewinnst!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wir spielen Stein, Schere, Papier OHNE Erweiterungen");
+                    }
+                }
+                Console.ReadLine();
+                Console.WriteLine("Willst du noch eine Runde spielen? j/n");
+                ConsoleKeyInfo input = Console.ReadKey();
+                Console.WriteLine("\n");
+                weiterSpielen = input.KeyChar == 'j';
+                Console.WriteLine("Alles klar!");
+
+            }
+        }
+    }
+}
